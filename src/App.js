@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {useState} from 'react';
+import { useState } from 'react';
 
 function App() {
 
@@ -15,15 +15,25 @@ function App() {
     setTodoList([...todoList, newTask])
   }
 
+  const deleteTask = (taskName) => {
+    setTodoList(todoList.filter((task) => task !== taskName)
+    )
+  }
+
   return (
     <div className="App">
       <div className='addTask'>
-          <input onChange={handleChange}/>
-          <button onClick={addTask}>Add Task</button>
+        <input onChange={handleChange} />
+        <button onClick={addTask}>Add Task</button>
       </div>
       <div className='list'>
         {todoList.map((task) => {
-          return <h1>{task}</h1>
+          return (
+            <div key={task.id}>
+              <h1>{task}</h1>
+              <button onClick={() => deleteTask(task)}>X</button>
+            </div>
+          )
         })}
       </div>
     </div>
