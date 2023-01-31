@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import Task from './components/Task';
 
 function App() {
 
@@ -12,11 +13,15 @@ function App() {
   }
 
   const addTask = () => {
-    setTodoList([...todoList, newTask])
+    const task = {
+      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
+      taskName: newTask
+    }
+    setTodoList([...todoList, task])
   }
 
-  const deleteTask = (taskName) => {
-    setTodoList(todoList.filter((task) => task !== taskName)
+  const deleteTask = (id) => {
+    setTodoList(todoList.filter((task) => task.id !== id)
     )
   }
 
@@ -29,10 +34,10 @@ function App() {
       <div className='list'>
         {todoList.map((task) => {
           return (
-            <div key={task.id}>
-              <h1>{task}</h1>
-              <button onClick={() => deleteTask(task)}>X</button>
-            </div>
+            <Task key={task.id}
+            taskName={task.taskName}
+            id={task.id}
+            deleteTask={deleteTask}/>
           )
         })}
       </div>
