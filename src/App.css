@@ -1,0 +1,64 @@
+.addTask {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  padding: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media(max-width: 400px) {
+  .addTask {
+    flex-direction: column;
+  }
+}
+
+.addTask input {
+  width: 10rem;
+  height: 1.5rem;
+}
+
+@media(max-width: 400px) {
+  .addTask input {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.addTask button {
+  margin: 0 0 0 1rem;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.task {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  padding: 1rem;
+}
+
+@media(max-width: 400px) {
+  .task {
+    flex-direction: column;
+  }
+}
+
+.complete {
+  margin: 0 0 0 1rem;
+}
+
+@media(max-width: 400px) {
+  .complete {
+    margin-bottom: 1rem;
+  }
+}
+
+.delete {
+  margin: 0 0 0 1rem;
+}
